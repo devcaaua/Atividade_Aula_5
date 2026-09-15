@@ -1,8 +1,8 @@
 {
-  "name": "exercicio1",
+  "name": "exercicio2",
   "version": "1.0.0",
   "description": "",
-  "main": "servidor/server.js",
+  "main": "server.js",
   "scripts": {
     "dev": "node servidor/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"

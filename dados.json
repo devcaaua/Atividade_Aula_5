@@ -1,23 +1,23 @@
 [
     {
         "id":1,
-        "data":"2026-06-01",
-        "paciente":"Jesuéla",
-        "peso":130,
-        "altura":1.40
+        "nome":"tabajara",
+        "vitorias":5,
+        "empates":1,
+        "derrotas":0
     },
-    {
+      {
         "id":2,
-        "data":"2026-06-10",
-        "paciente":"Astrononte",
-        "peso":45,
-        "altura":1.90
+        "nome":"RuimDeBola",
+        "vitorias":1,
+        "empates":3,
+        "derrotas":4
     },
-    {
+      {
         "id":3,
-        "data":"2026-10-01",
-        "paciente":"JubsTchola",
-        "peso":450,
-        "altura":4.10
+        "nome":"PernaDePau",
+        "vitorias":2,
+        "empates":2,
+        "derrotas":2
     }
 ]

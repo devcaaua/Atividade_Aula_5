@@ -1,35 +1,35 @@
 const express = require("express");
-const pacientes = require("../dados.json");
+const times = require("../dados.json");
 
-const mostrarPacientes = (req, res) => {
-    calcularIMC();
-    res.send(pacientes)
+const mostrarTimes= (req, res) => {
+    calcularPontucao();
+    res.send(times)
 }
 
-const calcularIMC = (req, res) => {
-    pacientes.forEach( p => {
-        p.imc = p.peso/(p.altura * p.altura) 
-    })
-}
-
-const novoPaciente = (req, res) => {
-    if(req.body) {
-        res.send("Paciente Cadastrado com Sucesso!!");
-        pacientes.push(req.body);
+const novoTime = (req, res) => {
+    if(req.body){
+        res.send("Time cadastrado com sucesso!")
+        times.push(req.body)
     } else {
-        res.send("Erro ao cadastrar o paciente");
+        res.send("Erro ao cadastrar time")
     }
 }
 
-const app = express()
-app.use(express.urlencoded({extended : true}))
-const porta = 3000
+const calcularPontucao = (req, res) => {
+    times.forEach(t => {
+        t.pontuacao = (t.vitorias * 3) + t.empates
+    })
+}
 
-app.get("/", mostrarPacientes)
-app.post("/", novoPaciente)
-app.post("/imc", calcularIMC)
+const app = express();
+app.use(express.urlencoded({ extended: true}))
+const porta = 3000;
 
-app.listen(porta, () => { 
-    console.log(`Servidor: http://127.0.0.1:${porta}`) 
+app.get("/", mostrarTimes);
+app.post("/", novoTime)
+app.post("/pontuacao", calcularPontucao)
+
+app.listen(porta, () => {
+    console.log(`Servidor: http://127.0.0.1:${porta}`)
     console.log(`Cliente: http://127.0.0.1:5500/cliente/index.html`)
-})
+});
